@@ -24,7 +24,7 @@ URL should result in a cross site JSON object wrapped by the passed callback
 function. Example:
 
 Request: 
-http://presenterry.com/metrics/load.php?callback=returnLoad
+http://www.yourdomain.com/metrics/load.php?callback=returnLoad
 
 Answer:
 returnLoad({"average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
