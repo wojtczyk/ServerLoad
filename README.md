@@ -21,7 +21,8 @@ Execution
 
 If the server is configured properly to execute PHP scripts, accessing the 
 URL should result in a JSON object or a cross domain JSONP object wrapped by
-the passed callback function.
+the passed callback function. On success the "status" field contains "ok",
+on failure "fail".
 
 ### Same Origin Request ###
 
