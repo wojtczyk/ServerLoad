@@ -30,10 +30,10 @@ If the calling JavaScript program resides in the same domain, a request
 without a callback is sufficient.
 
 Request: 
-	http://www.yourdomain.com/metrics/load.php
+    http://www.yourdomain.com/metrics/load.php
 
 JSON answer:
-	{"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
+    {"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
 
 ### Cross Domain Request ###
 
@@ -42,10 +42,10 @@ a callback method. (Hint: jQuery.getJSON() takes care of this if you
 append '?callback=?' to the URL)
 
 Request:
-	http://www.yourdomain.com/metrics/load.php?callback=dataLoad
+    http://www.yourdomain.com/metrics/load.php?callback=dataLoad
 
 JSONP answer:
-	dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
+    dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
 
 Afterwards the client-side dataLoad callback can visualize or log the
 load values.
