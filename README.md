@@ -23,11 +23,23 @@ If the server is configured properly to execute PHP scripts, accessing the
 URL should result in a cross site JSON object wrapped by the passed callback
 function. Example:
 
-Request: 
-http://www.yourdomain.com/metrics/load.php?callback=returnLoad
+Same origin request
+-------------------
 
-Answer:
-returnLoad({"average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
+Request without a callback sufficient: 
+http://www.yourdomain.com/metrics/load.php
 
-Afterwards the client-side returnLoad callback can visualize or log the
+JSON Answer:
+{"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
+
+Cross domain request
+--------------------
+
+Request needs to supply a callback method: 
+http://www.yourdomain.com/metrics/load.php?callback=dataLoad
+
+JSONP Answer:
+dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
+
+Afterwards the client-side dataLoad callback can visualize or log the
 load values.
