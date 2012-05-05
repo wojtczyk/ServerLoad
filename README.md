@@ -26,10 +26,10 @@ function. Example:
 Same origin request
 -------------------
 
-Request without a callback sufficient: 
+Request without a callback is sufficient: 
 http://www.yourdomain.com/metrics/load.php
 
-JSON Answer:
+JSON answer:
 {"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
 
 Cross domain request
@@ -38,7 +38,7 @@ Cross domain request
 Request needs to supply a callback method: 
 http://www.yourdomain.com/metrics/load.php?callback=dataLoad
 
-JSONP Answer:
+JSONP answer:
 dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
 
 Afterwards the client-side dataLoad callback can visualize or log the
