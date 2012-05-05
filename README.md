@@ -20,26 +20,31 @@ Execution
 =========
 
 If the server is configured properly to execute PHP scripts, accessing the 
-URL should result in a cross site JSON object wrapped by the passed callback
-function. Example:
+URL should result in a JSON object or a cross domain JSONP object wrapped by
+the passed callback function.
 
-Same origin request
--------------------
+### Same Origin Request ###
 
-Request without a callback is sufficient: 
-http://www.yourdomain.com/metrics/load.php
+If the calling JavaScript program resides in the same domain, a request
+without a callback is sufficient.
+
+Request: 
+	http://www.yourdomain.com/metrics/load.php
 
 JSON answer:
-{"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
+	{"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"}
 
-Cross domain request
---------------------
+### Cross Domain Request ###
 
-Request needs to supply a callback method: 
-http://www.yourdomain.com/metrics/load.php?callback=dataLoad
+For a cross domain request, the calling JavaScript program needs to supply
+a callback method. (Hint: jQuery.getJSON() takes care of this if you 
+append '?callback=?' to the URL)
+
+Request:
+	http://www.yourdomain.com/metrics/load.php?callback=dataLoad
 
 JSONP answer:
-dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
+	dataLoad({"SL":1,"status":"ok","average1min":"0.10","average5min":"0.11","average15min":"0.12","updays":"59"})
 
 Afterwards the client-side dataLoad callback can visualize or log the
 load values.
